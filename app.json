@@ -4,11 +4,11 @@
     "slug": "engordeapp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icono.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
     "splash": {
-      "image": "./assets/icono.png",
+      "image": "./assets/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,13 +18,11 @@
     },
     "android": {
       "package": "com.engordeapp.app",
-      "versionCode": 1,
+      "versionCode": 4,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icono.png",
-        "backgroundColor": "#16a34a"
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false,
       "permissions": [
         "android.permission.RECORD_AUDIO"
       ]
@@ -40,11 +38,12 @@
       [
         "expo-notifications",
         {
-          "icon": "./assets/icono.png",
+          "icon": "./assets/icon.png",
           "color": "#16a34a",
           "sounds": []
         }
-      ]
+      ],
+      "expo-font"
     ],
     "extra": {
       "router": {},
