@@ -5,6 +5,7 @@ import {
   View, Text, StyleSheet, TouchableOpacity, Modal,
   Animated, Pressable,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { supabase } from '../../lib/supabase';
 import { COLORS, SPACING, RADIUS, FONT } from '../../constants';
 
@@ -126,6 +127,7 @@ function ProfilePanel({ visible, onClose, onNavigate, email, nombre }: ProfilePa
 
 export default function TabsLayout() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const [panelVisible, setPanelVisible] = useState(false);
   const [email, setEmail] = useState('');
   const [nombre, setNombre] = useState('');
@@ -156,8 +158,8 @@ export default function TabsLayout() {
             backgroundColor: COLORS.blanco,
             borderTopColor: COLORS.borde,
             borderTopWidth: 1,
-            height: 62,
-            paddingBottom: 10,
+            height: 62 + insets.bottom,
+            paddingBottom: 10 + insets.bottom,
             paddingTop: 4,
           },
           tabBarLabelStyle: { fontSize: 11, fontWeight: '600' },

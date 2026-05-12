@@ -1,6 +1,6 @@
 import {
   View, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView,
-  Alert, ActivityIndicator,
+  Alert, ActivityIndicator, FlatList,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
@@ -144,10 +144,14 @@ export default function PrecioMercadoScreen() {
           </TouchableOpacity>
 
           {mostrarDepts && (
-            <View style={styles.deptLista}>
-              {DEPARTAMENTOS.map((d) => (
+            <FlatList
+              data={DEPARTAMENTOS}
+              keyExtractor={(d) => d}
+              style={styles.deptLista}
+              nestedScrollEnabled
+              keyboardShouldPersistTaps="handled"
+              renderItem={({ item: d }) => (
                 <TouchableOpacity
-                  key={d}
                   style={[styles.deptItem, departamento === d && styles.deptItemActivo]}
                   onPress={() => { setDepartamento(d); setMostrarDepts(false); }}
                 >
@@ -158,8 +162,8 @@ export default function PrecioMercadoScreen() {
                     <Ionicons name="checkmark" size={16} color={COLORS.primario} />
                   )}
                 </TouchableOpacity>
-              ))}
-            </View>
+              )}
+            />
           )}
         </View>
 
@@ -249,7 +253,7 @@ const styles = StyleSheet.create({
   deptLista: {
     marginTop: 4, backgroundColor: COLORS.blanco,
     borderRadius: RADIUS.md, borderWidth: 1, borderColor: COLORS.borde,
-    maxHeight: 240, overflow: 'hidden',
+    maxHeight: 240,
   },
   deptItem: {
     flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',

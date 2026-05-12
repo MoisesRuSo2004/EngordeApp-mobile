@@ -73,7 +73,7 @@ function IllustracionControl({ isActive }: { isActive: boolean }) {
   return (
     <View style={il.wrap}>
       <Animated.View style={{ transform: [{ translateY: float }] }}>
-        <Image source={require('../assets/icono.png')} style={il.icono} resizeMode="contain" />
+        <Image source={require('../assets/icon.png')} style={il.icono} resizeMode="contain" />
       </Animated.View>
       <View style={il.chartWrap}>
         {bars.map((val, i) => (

@@ -357,7 +357,7 @@ const styles = StyleSheet.create({
 
   // ── Logo ──
   logoArea: { alignItems: "center", marginBottom: SPACING.lg },
-  logoImg: { width: 240, height: 150 },
+  logoImg: { width: 160, height: 160, borderRadius: 32 },
 
   // ── Card ──
   card: {
